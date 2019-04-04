@@ -1,11 +1,14 @@
 #!/usr/bin/expect
-set password 314159
+#expect 脚本 自动输入密码，添加私钥 登录 ssh
+# *** 换成自己的密码
+set password *****
 set arg [lindex $argv 0]
 if { "$arg" == "T" } {
 	spawn ssh-add .ssh/id_rsa.xuxiaolong
 	expect "*xuxiaolong:" { send "$password\r" }
 	expect eof
 }
-spawn ssh -i ~/.ssh/id_rsa.xuxiaolong -A xuxiaolong#UTF-8@192.168.10.5 -p 222
+#
+spawn ssh -i ~/.ssh/id_rsa.xuxiaolong -A xuxiaolong#UTF-8@ip -p 222
 expect "*xuxiaolong:" { send "$password\r" }
 interact
