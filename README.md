@@ -3,3 +3,4 @@
 
 * build.sh go build 脚本
 
+* startlog.sh 下载容器，启动pipe本地博客
